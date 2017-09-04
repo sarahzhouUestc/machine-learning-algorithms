@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/pudb/__init__.py", line 93, in runscript
+    dbg._runscript(mainpyfile)
+  File "/usr/local/lib/python2.7/dist-packages/pudb/debugger.py", line 429, in _runscript
+    self.run(statement, globals=globals_, locals=locals_)
+  File "/usr/lib/python2.7/bdb.py", line 400, in run
+    exec cmd in globals, locals
+  File "<string>", line 1, in <module>
+  File "test.py", line 14, in <module>
+    grid,accuracy = svm.classify(data,label,0.7,{0: 20, 1: 20, 2: 20, 3: 60, 4: 20, 5: 20},'ovr','rbf')
+  File "svm.py", line 35, in classify
+    return accuracy(test,label[idx_test],clf)
+  File "svm.py", line 44, in accuracy
+    pre = classifier.predict([d])
+  File "/usr/local/lib/python2.7/dist-packages/sklearn/svm/base.py", line 548, in predict
+    y = super(BaseSVC, self).predict(X)
+  File "/usr/local/lib/python2.7/dist-packages/sklearn/svm/base.py", line 308, in predict
+    X = self._validate_for_predict(X)
+  File "/usr/local/lib/python2.7/dist-packages/sklearn/svm/base.py", line 439, in _validate_for_predict
+    X = check_array(X, accept_sparse='csr', dtype=np.float64, order="C")
+  File "/usr/local/lib/python2.7/dist-packages/sklearn/utils/validation.py", line 410, in check_array
+    "if it contains a single sample.".format(array))
+ValueError: Expected 2D array, got 1D array instead:
+array=[ 4059.12  2191.03 -1146.08    20.      54.     165.  ].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.

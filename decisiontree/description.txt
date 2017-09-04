@@ -1,0 +1,24 @@
+5. Number of Instances: 24
+
+6. Number of Attributes: 4 (all nominal)
+
+7. Attribute Information:
+    -- 3 Classes
+         1 : the patient should be fitted with hard contact lenses,
+              2 : the patient should be fitted with soft contact lenses,
+                   3 : the patient should not be fitted with contact lenses.
+
+                       1. age of the patient: (1) young, (2) pre-presbyopic,
+                       (3) presbyopic
+                           2. spectacle prescription:  (1) myope, (2)
+                           hypermetrope
+                               3. astigmatic:     (1) no, (2) yes
+                                   4. tear production rate:  (1) reduced, (2)
+                                   normal
+
+                                   8. Number of Missing Attribute Values:   0
+
+                                   9. Class Distribution:
+                                      1. hard contact lenses: 4
+                                         2. soft contact lenses: 5
+                                            3. no contact lenses: 15
