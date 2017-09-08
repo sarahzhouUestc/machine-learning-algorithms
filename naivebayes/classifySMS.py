@@ -1,6 +1,6 @@
 # encoding=utf-8
-from pudb import set_trace
-set_trace()
+# from pudb import set_trace
+# set_trace()
 import bayes
 import pandas as pd
 
@@ -11,7 +11,8 @@ def access():
 		labels,samples = bayes.load_data(_filename)
 		trainIdx,testIdx = bayes.splitData(samples.index,0.7)
 		dic = bayes.buildVocabularyList(samples)
-		spamPro,pamPro,pw = bayes.bayesian(samples[trainIdx],labels[trainIdx],dic)
+		trainVecs,trainLabels,pw = bayes.buildVecsAndLabels(samples[trainIdx],labels[trainIdx],dic)
+		spamPro,pamPro = bayes.bayesian(trainVecs,trainLabels,dic)
 		acc = bayes.accuracy(samples[testIdx],labels[testIdx],dic,spamPro,pamPro,pw)
 		totalAcc += acc
 		print 'accuracy = %s' % acc
