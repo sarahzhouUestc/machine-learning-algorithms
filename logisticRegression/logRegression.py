@@ -21,7 +21,7 @@ def load_test_data():
 
 def sigmoid(x):
 	np = __import__('numpy')
-	return longfloat(1/(1+np.exp((-1)*x)))
+	return 1/(1+np.exp((-1)*x))
 
 def normalGradientAscent(data,labels,iterNum):
 	np = __import__('numpy')
@@ -38,7 +38,7 @@ def stochasticGradientAscent(data,labels):
 	np = __import__('numpy')
 	m,n = data.shape
 	ws = np.mat(np.ones(n)).transpose()
-	alpha = 0.001
+	alpha = 0.0001
 	for i in range(m):
 		e = labels[i]-sigmoid(data[i]*ws)
 		ws = ws + (alpha*e*data[i]).transpose()
@@ -54,7 +54,7 @@ def improvedStoGraAscent(data,labels,iterNum):
 	for i in range(iterNum):
 		idxs = list(pd.DataFrame(labels).index)
 		for j in range(m):
-			alpha = 4/(1.0+i+j)+0.001
+			alpha = 4/(1.0+i+j)+0.0001
 			idx = np.random.choice(idxs,1)
 			sample = data[idx]
 			e = labels[idx]-sigmoid(data[idx]*ws)
@@ -102,7 +102,7 @@ def testImproved():
 	np = __import__('numpy')
 	train,train_labels = load_train_data()
 	test,test_labels = load_test_data()
-	weights = improvedStoGraAscent(train,train_labels,5)
+	weights = improvedStoGraAscent(train,train_labels,20)
 	total = len(test)
 	error_count = 0.0
 	for i in test.index:
